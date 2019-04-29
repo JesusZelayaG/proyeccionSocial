@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.android_etps1">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true">
+        <activity
+            android:name=".usuarios.rolUsuarios.NewRolActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".usuarios.listaPersonas.NewListaPersonasActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".usuarios.rolUsuarios.RolUsuariosActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".usuarios.listaPersonas.ListaPersonasActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".usuarios.EditUsuariosActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".usuarios.NewUsuarioActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".facultades.listaEscuelas.NewListaActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".facultades.listaEscuelas.ListasEscuelasActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".proveedores.EditProveedoresActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".facultades.EditFacultadActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".vehiculos.EditVehiculosActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".vehiculos.NewVehiculosActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".vehiculos.VehiculosActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".perfiles.PerfilesActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".usuarios.UsuariosActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".descripciones.NewDescripcionesActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".descripciones.DescripcionesActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".facultades.NewFacultadActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".proveedores.NewProveedorActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".proveedores.ProveedoresActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".facultades.FacultadesActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".index.HomeActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".index.MainActivity"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
