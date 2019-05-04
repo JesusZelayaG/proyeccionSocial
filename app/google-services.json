@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "453966130042",
+    "firebase_url": "https://proyeccionsocial-44845.firebaseio.com",
+    "project_id": "proyeccionsocial-44845",
+    "storage_bucket": "proyeccionsocial-44845.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453966130042:android:91dcd3d297032a6a",
+        "android_client_info": {
+          "package_name": "com.example.android_etps1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453966130042-8hj5tmrlh7nefjltp2dn3a5fibq6fmud.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android_etps1",
+            "certificate_hash": "1b29baf3c24e9c6c68cd535a9a2a71af609ee17d"
+          }
+        },
+        {
+          "client_id": "453966130042-qfj154b0v49nbh655qe16au4s82eiu9m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7K7O9O7s8bjx22F3BmHJs5ICm1Nfz104"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "453966130042-qfj154b0v49nbh655qe16au4s82eiu9m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
