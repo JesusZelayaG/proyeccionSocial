@@ -12,34 +12,12 @@
         android:id="@+id/img_logo"
         android:layout_width="211dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="37dp"
+        android:layout_marginBottom="200dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_ingresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_letra"
         app:srcCompat="@drawable/logo" />
-
-    <Button
-        android:id="@+id/btn_ingresar"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginLeft="54dp"
-        android:layout_marginEnd="54dp"
-        android:layout_marginRight="54dp"
-        android:layout_marginBottom="209dp"
-        android:background="#95133F"
-        android:onClick="ingresarApp"
-        android:text="Ingresar"
-        android:textColor="#DEDADA"
-        android:textColorHighlight="#E91E63"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_logo" />
 
     <ImageView
         android:id="@+id/img_letra"
@@ -56,5 +34,61 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/letras_utec" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="600dp"
+        android:layout_marginBottom="450dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/edtUsuario"
+            style="@style/Widget.AppCompat.AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Ingrese su usuario"
+            android:inputType="textPersonName"
+            android:textColorHint="#FFFFFF" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/edtClave"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Ingrese su clave"
+            android:textColorHint="#FFFFFF">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="hint" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_ingresar"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginLeft="54dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginRight="54dp"
+        android:layout_marginBottom="150dp"
+        android:background="#95133F"
+        android:onClick="ingresarApp"
+        android:text="Ingresar"
+        android:textColor="#DEDADA"
+        android:textColorHighlight="#E91E63"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_logo" />
 
 </android.support.constraint.ConstraintLayout>
