@@ -1,6 +1,7 @@
 package com.example.android_etps1.index;
 
 import android.content.Intent;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        edtUsuario = findViewById(R.id.edtUsuario);
-        edtClave = findViewById(R.id.edtClave);
+        edtUsuario = findViewById(R.id.edt_usuario);
+        edtClave = findViewById(R.id.edt_clave);
         btn_ingresar = findViewById(R.id.btn_ingresar);
         LoginController login = new LoginController();
 

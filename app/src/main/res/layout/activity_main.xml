@@ -35,39 +35,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/letras_utec" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+   <EditText
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       app:layout_constraintTop_toBottomOf="@+id/img_logo"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       android:layout_marginTop="25dp"
+       android:layout_marginLeft="25dp"
+       android:layout_marginRight="25dp"
+       android:hint="Ingrese usuario"
+       android:id="@+id/edt_usuario"/>
+    
+    <EditText
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="600dp"
-        android:layout_marginBottom="450dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/edtUsuario"
-            style="@style/Widget.AppCompat.AutoCompleteTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Ingrese su usuario"
-            android:inputType="textPersonName"
-            android:textColorHint="#FFFFFF" />
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/edtClave"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Ingrese su clave"
-            android:textColorHint="#FFFFFF">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="hint" />
-        </android.support.design.widget.TextInputLayout>
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/edt_usuario"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:hint="Ingrese password"
+        android:inputType="textPassword"
+        android:id="@+id/edt_clave"/>
+    
 
     <Button
         android:id="@+id/btn_ingresar"
@@ -90,5 +82,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_logo" />
+
+
 
 </android.support.constraint.ConstraintLayout>
