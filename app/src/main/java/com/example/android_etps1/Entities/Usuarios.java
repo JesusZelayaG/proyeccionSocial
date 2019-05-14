@@ -7,12 +7,11 @@ public class Usuarios
     private int rol;
     private String usuario;
     private  String clave;
-    Object refrenciaUsuarios;
     Conexion conexion;
+
     public Usuarios()
     {
         conexion = new Conexion();
-        refrenciaUsuarios = conexion.refrenciaUsuarios();
     }
     public int getRol() {
         return rol;
@@ -36,5 +35,15 @@ public class Usuarios
 
     public void setClave(String clave) {
         this.clave = clave;
+    }
+
+    public String getId()
+    {
+        return  id;
+    }
+
+    public void setId(String id)
+    {
+        this.id = id;
     }
 }
