@@ -1,5 +1,6 @@
 package com.example.android_etps1.index;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -32,9 +33,13 @@ public class MainActivity extends AppCompatActivity {
     EditText edt_usuario, edt_clave;
     Button btn_ingresar;
     String usuario, clave;
+    /***Objetos***/
+
     ProgressBar progressBar;
     Usuarios usuarios;
     Conexion conexion;
+    Context contexto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,17 +50,19 @@ public class MainActivity extends AppCompatActivity {
         /*** Objetos exeternos***/
         progressBar = new ProgressBar(this);
         conexion = new Conexion();
-        inicializarFirebase();
         usuarios = new Usuarios();
+        contexto = getApplicationContext();
+        conexion.setContexto(contexto);
+        inicializarFirebase();
     }
 
     /*** Inicializamos la aplicacion y los objetos***/
     private void inicializarFirebase()
     {
-        FirebaseApp.initializeApp(this);
-        conexion.instancia();
-        conexion.referencia();
-        conexion.autenticacion();
+        FirebaseApp.initializeApp(conexion.getContexto());
+        conexion.getInstancia();
+        conexion.getReferencia();
+        conexion.getAutenticacion();
     }
 
     public void ingresarApp(View btn_ingresar)
@@ -112,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Mensaje: ", "Inicio sesion:" + usuarios.getUsuario());
         progressBar.setVisibility(View.VISIBLE);
         // [START sign_in_with_email]
-        conexion.autenticacion().signInWithEmailAndPassword(usuarios.getUsuario(), usuarios.getClave())
+        conexion.getAutenticacion().signInWithEmailAndPassword(usuarios.getUsuario(), usuarios.getClave())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -120,8 +127,7 @@ public class MainActivity extends AppCompatActivity {
                         {
                             // Si existe el usuario, Iniciamos la siguiente actividad
                             Log.d("Mensaje", "Inicio sesion correctamente");
-                            FirebaseUser usuario = conexion.autenticacion().getCurrentUser();
-                            String id = conexion.autenticacion().getUid();
+                            String id = conexion.getAutenticacion().getUid();
                             Intent obj = new Intent(getApplicationContext(), HomeActivity.class);
                             obj.putExtra("usuario",usuario);
                             obj.putExtra("id",id);

@@ -1,8 +1,11 @@
 package com.example.android_etps1.usuarios;
 
+import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +19,13 @@ import android.widget.Toast;
 import com.example.android_etps1.Conexion.Conexion;
 import com.example.android_etps1.Entities.Usuarios;
 import com.example.android_etps1.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.regex.Pattern;
 
@@ -33,7 +42,8 @@ public class NewUsuarioActivity extends AppCompatActivity {
     ProgressBar progressBar;
     Usuarios usuarios;
     Conexion conexion;
-
+    Context contexto;
+    FirebaseAuth autenticacion;
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -72,15 +82,18 @@ public class NewUsuarioActivity extends AppCompatActivity {
         conexion = new Conexion();
         inicializarFirebase();
         usuarios = new Usuarios();
+        contexto = getApplicationContext();
+        conexion.setContexto(contexto);
+        conexion.setAutenticacion(autenticacion);
     }
 
     /*** Inicializamos la aplicacion y los objetos***/
     private void inicializarFirebase()
     {
-        FirebaseApp.initializeApp(this);
-        conexion.instancia();
-        conexion.referencia();
-        conexion.autenticacion();
+        FirebaseApp.initializeApp(conexion.getContexto());
+        conexion.getInstancia();
+        conexion.getReferencia();
+        conexion.getAutenticacion();
     }
 
 
@@ -94,7 +107,12 @@ public class NewUsuarioActivity extends AppCompatActivity {
         {
             if (validarEmail(usuarios))
             {
-
+                registrarUsuario(usuarios.getUsuario(),usuarios.getClave());
+            }
+            else
+            {
+                edt_nombre_user.setError("Email no valido");
+                edt_nombre_user.requestFocus();
             }
         }
     }
@@ -104,13 +122,13 @@ public class NewUsuarioActivity extends AppCompatActivity {
         boolean bandera;
         if (usuarios.getUsuario().equals(""))
         {
-            edt_nombre_user.setError("Ingrese su correo por favor");
+            edt_nombre_user.setError("Ingrese correo por favor");
             edt_nombre_user.requestFocus();
             bandera=false;
         }
         else if (usuarios.getClave().equals(""))
         {
-            edt_clave_usuario.setError("Ingrese su clave por favor");
+            edt_clave_usuario.setError("Ingrese clave por favor");
             edt_clave_usuario.requestFocus();
             bandera=false;
         }
@@ -128,30 +146,36 @@ public class NewUsuarioActivity extends AppCompatActivity {
     }
 
     /**** ES PARA REGISTRAR USUARIO ****/
-    /*
     private void registrarUsuario(String usuario, String clave)
     {
         this.usuario=usuario;
         this.clave=clave;
-        progressDialog.setMessage("Accediendo...");
-        progressDialog.show();
-        firebaseAuth.createUserWithEmailAndPassword(usuario,clave).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+         conexion.getAutenticacion().createUserWithEmailAndPassword(usuario,clave)
+            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
                 {
                     Log.d("Mensaje: ","Creacion de usuario exitosa");
-                    FirebaseUser usuario = firebaseAuth.getCurrentUser();
+                    FirebaseUser usuario = conexion.getAutenticacion().getCurrentUser();
+                    String user=usuario.getEmail();
+                    Toast.makeText(conexion.getContexto(),"Usuario creado: "+user,Toast.LENGTH_LONG).show();
                 }
                 else
                 {
-                    Log.w("Mensaje: ","Erro al crear el usuario",task.getException());
-                    //Se hace distinta la sintaxis ya que cambia de contexto para mostrar este mensaje
-                    Toast.makeText(MainActivity.this,"No se pudo registrar el usuario",Toast.LENGTH_LONG).show();
+                    if (task.getException() instanceof FirebaseAuthUserCollisionException)
+                    {
+                        Toast.makeText(conexion.getContexto(), "Ese usuario ya existe", Toast.LENGTH_LONG).show();
+                        Log.w("Mensaje: ","Error al crear el usuario porque ya existe",task.getException());
+                    }
+                    else
+                    {
+                        Log.w("Mensaje: ","Error al crear el usuario",task.getException());
+                        //Se hace distinta la sintaxis ya que cambia de contexto para mostrar este mensaje
+                        Toast.makeText(conexion.getContexto(),"No se pudo registrar el usuario",Toast.LENGTH_LONG).show();
+                    }
                 }
-                progressDialog.dismiss();
             }
         });
     }
-    */
 }

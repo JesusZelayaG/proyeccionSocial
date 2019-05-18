@@ -1,5 +1,6 @@
 package com.example.android_etps1.index;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +23,8 @@ public class HomeActivity extends AppCompatActivity {
     Usuarios usuarios;
     String usuario,id;
 
+    Context contexto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,16 +33,18 @@ public class HomeActivity extends AppCompatActivity {
 
         conexion = new Conexion();
         usuarios = new Usuarios();
+        contexto = getApplicationContext();
+        conexion.setContexto(contexto);
         inicializarFirebase();
     }
 
     /*** Inicializamos la aplicacion y los objetos***/
     private void inicializarFirebase()
     {
-        FirebaseApp.initializeApp(this);
-        conexion.instancia();
-        conexion.referencia();
-        conexion.autenticacion();
+        FirebaseApp.initializeApp(conexion.getContexto());
+        conexion.getInstancia();
+        conexion.getReferencia();
+        conexion.getAutenticacion();
     }
 
     public void buttonFacultades(View btn_facultades){
@@ -74,7 +79,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void buttonCerrar(View btn_cerrar)
     {
-        conexion.autenticacion().signOut();
+        conexion.getAutenticacion().signOut();
         finish();
     }
 }
