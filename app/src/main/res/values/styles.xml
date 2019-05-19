@@ -10,10 +10,15 @@
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
     </style>
-    <style name="edtStyle">
+    <style name="edtStyleUtecColor">
         <item name="colorControlNormal">#5B0421</item>
         <item name="colorControlActivated">#5B0421</item>
         <item name="colorControlHighlight">#5B0421</item>
+    </style>
+    <style name="edtStyleWhite">
+        <item name="colorControlNormal">#DEDADA</item>
+        <item name="colorControlActivated">#DEDADA</item>
+        <item name="colorControlHighlight">#DEDADA</item>
     </style>
 
 </resources>

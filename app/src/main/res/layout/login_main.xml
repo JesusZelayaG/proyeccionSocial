@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#95133F"
+    tools:context=".index.LoginActivity">
+
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="206dp"
+        android:layout_height="192dp"
+        app:srcCompat="@drawable/logo"
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="206dp"
+        app:layout_constraintTop_toBottomOf="@+id/img_letra"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/edt_mail"/>
+
+    <EditText
+        android:id="@+id/edt_mail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="Correo"
+        android:inputType="textEmailAddress"
+        android:textColor="#DEDADA"
+        android:textColorHint="#DEDADA"
+        android:theme="@style/edtStyleWhite"
+        app:layout_constraintBottom_toTopOf="@+id/edt_clave"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_logo" />
+
+    <EditText
+        android:id="@+id/edt_clave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:textColor="#DEDADA"
+        android:textColorHint="#DEDADA"
+        android:theme="@style/edtStyleWhite"
+        app:layout_constraintBottom_toTopOf="@+id/btn_ingresar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_mail" />
+
+    <ImageView
+        android:id="@+id/img_letra"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/letras_utec"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:layout_marginRight="30dp"
+        app:layout_goneMarginRight="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/img_logo"/>
+
+    <Button
+        android:id="@+id/btn_ingresar"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="303dp"
+        android:layout_height="wrap_content"
+        android:background="#95133F"
+        android:onClick="ingresarApp"
+        android:text="Ingresar"
+        android:textColor="#DEDADA"
+        android:textColorHighlight="#E91E63"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="54dp"
+        tools:layout_editor_absoluteY="618dp"
+        app:layout_constraintTop_toBottomOf="@+id/edt_clave"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+</android.support.constraint.ConstraintLayout>
