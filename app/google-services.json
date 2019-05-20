@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1097679418885",
+    "firebase_url": "https://proyeccion-social.firebaseio.com",
+    "project_id": "proyeccion-social",
+    "storage_bucket": "proyeccion-social.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097679418885:android:91dcd3d297032a6a",
+        "android_client_info": {
+          "package_name": "com.example.android_etps1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1097679418885-r45cr0rak6ob1k4g4mrc8erg0m2f2hal.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3lZZ50T58iTbs1tb-XAEVMBc8COTXMqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1097679418885-r45cr0rak6ob1k4g4mrc8erg0m2f2hal.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
