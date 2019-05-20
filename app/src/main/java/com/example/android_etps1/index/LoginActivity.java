@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             editTextPassword.requestFocus();
         }
         else {
-            
+
             Intent obj = new Intent(getApplicationContext(), HomeActivity.class);
             startActivity(obj);
         }
